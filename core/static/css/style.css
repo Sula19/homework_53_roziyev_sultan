@@ -1,0 +1,14 @@
+body {
+    background: #1b1b1b;
+}
+h1 {
+    color: goldenrod;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    text-align: center;
+}
+h3 {
+    color: gold;
+}
+h4 {
+    color: goldenrod;
+}
