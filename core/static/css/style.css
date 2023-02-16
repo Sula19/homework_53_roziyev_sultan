@@ -1,5 +1,6 @@
 body {
     background: #1b1b1b;
+    margin-top: 60px;
 }
 h1 {
     color: goldenrod;
@@ -11,4 +12,28 @@ h3 {
 }
 h4 {
     color: goldenrod;
+}
+.navbar {
+    display: block;
+    background: dimgrey;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: 0;
+    box-sizing: border-box;
+    padding: 7px 30px;
+}
+.menu {
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    color: #fffee8;
+}
+.menu li {
+
+    display: inline-block;
+
 }
