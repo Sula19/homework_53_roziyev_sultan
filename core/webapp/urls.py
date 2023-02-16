@@ -6,9 +6,9 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', view),
-    path('add_view/', add_view),
-    path('detail_view/', detail_view),
-    path('<pk>/delete/', ListDeleteView.as_view(), name='delete'),
-    path('<pk>/update/', ListUpdateView.as_view(), name='update')
+    path('', view, name='view'),
+    path('add_view/', add_view, name='add_view'),
+    path('detail_view/<int:pk>', detail_view, name='detail_view'),
+    path('delete/<int:pk>/', ListDeleteView.as_view(), name='delete'),
+    path('update/<int:pk>/', ListUpdateView.as_view(), name='update')
 ]
