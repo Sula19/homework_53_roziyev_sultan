@@ -3,9 +3,8 @@ from webapp.models import List
 from django.core.handlers.wsgi import WSGIRequest
 
 
-def detail_view(request: WSGIRequest):
-    list_id = request.GET.get('pk')
-    lists = List.objects.get(pk=list_id)
+def detail_view(request: WSGIRequest, pk):
+    lists = List.objects.get(pk=pk)
     context = {
         'list': lists
     }
