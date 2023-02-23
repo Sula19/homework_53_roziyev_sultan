@@ -1,18 +1,21 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
+from webapp.forms import ListForms
 from webapp.models import List
 from django.core.handlers.wsgi import WSGIRequest
 
 
 def add_view(request: WSGIRequest):
     if request.method == 'GET':
-        return render(request, 'add_view.html')
-    list_data = {
-        'title': request.POST.get('title'),
-        'description': request.POST.get('description'),
-        'detailed_description': request.POST.get('detailed_description'),
-        'status': request.POST.get('status'),
-        'date': request.POST.get('date')
-    }
-    lists = List.objects.create(**list_data)
-    reverse_url = reverse('detail_view', kwargs={'pk': lists.pk})
-    return redirect(reverse_url)
+        form = ListForms()
+        return render(request, 'add_view.html', context={
+            'form': form
+        })
+
+    form = ListForms(data=request.POST)
+    if not form.is_valid():
+        return render(request, 'add_view.html', context={
+            'form': form
+        })
+    else:
+        List.objects.create(**form.cleaned_data)
+        return redirect('view')
