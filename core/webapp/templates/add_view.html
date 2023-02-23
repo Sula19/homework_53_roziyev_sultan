@@ -5,57 +5,6 @@
 {% endblock %}
 {% block contetnt %}
     <form method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-2">
-                <h3>Title</h3>
-            </div>
-            <div class="col-5">
-                <input type="text" class="form-control"  name="title">
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-2">
-                <h3>Description</h3>
-            </div>
-            <div class="col-5">
-                <input type="text" class="form-control"  name="description">
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-2">
-                <h3>Detail description</h3>
-            </div>
-            <div class="col-5">
-                <textarea name="detailed_description" class="form-control" cols="20" rows="5"></textarea>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-2">
-                <h3>Status</h3>
-            </div>
-            <div class="col-5">
-                <select class="form-select" name="status">
-                    <option selected disabled>Select Status</option>
-                    <option value="Новая">Новая</option>
-                    <option value="В прогрессе">в прогрессе</option>
-                    <option value="Завершена">Завершена</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-2">
-                <h3>Date</h3>
-            </div>
-            <div class="col-5">
-                <input type="date" name="date" class="form-control" placeholder="Date">
-            </div>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-outline-success">Create</button>
+        {% include 'partial/create_&_update_forms.html' with button='Create' %}
     </form>
 {% endblock %}
